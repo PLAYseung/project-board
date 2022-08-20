@@ -14,3 +14,5 @@
     - jar
     - 17
     - [DevTools, Lombok, Boot Actuator, Web]
+
+  - mySQL과 연동 부분에서 생긴 오류 해결 시도
