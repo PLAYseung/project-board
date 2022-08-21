@@ -1,17 +1,3 @@
 {
-    "sqltools.connections": [
-        {
-            "mysqlOptions": {
-                "authProtocol": "default"
-            },
-            "previewLimit": 50,
-            "server": "practice",
-            "port": 3306,
-            "driver": "MySQL",
-            "database": "board",
-            "username": "admin",
-            "password": "7582",
-            "name": "practice"
-        }
-    ]
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
