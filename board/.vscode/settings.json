@@ -5,7 +5,7 @@
                 "authProtocol": "default"
             },
             "previewLimit": 50,
-            "server": "localhost",
+            "server": "practice",
             "port": 3306,
             "driver": "MySQL",
             "database": "board",
