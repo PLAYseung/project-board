@@ -16,3 +16,9 @@
     - [DevTools, Lombok, Boot Actuator, Web]
 
   - mySQL과 연동 부분에서 생긴 오류 해결 시도
+  
+  - personal 개발환경 
+    - 우선 강의 완료후 재설정
+
+## 게시판 프로젝트
+  - 게시판 및 댓글 api 
