@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "spring.jpa.propertise.hibernate.format_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.propertise.hibernate.format_sql'"
+  },
+  {
+    "name": "spring.jpa.propertise.hibernate.default_batch_fetch_size",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.propertise.hibernate.default_batch_fetch_size'"
+  },
+  {
+    "name": "spring.jpa.defore-datasource-initialization",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.defore-datasource-initialization'"
+  },
+  {
+    "name": "spring.jpa.hibernate.ddl-aoto",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.ddl-aoto'"
+  }
+]}
