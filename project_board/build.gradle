@@ -30,8 +30,46 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // queryDSL 설정
+    /*
+        jpa, core 가장 중요
+        apt 중요
+     */
+    implementation "com.querydsl:querydsl-jpa"
+    implementation "com.querydsl:querydsl-core"
+    implementation "com.querydsl:querydsl-collections" // 없어도 기본 기능을 사용하는데 무리가 없음
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa" // 그레이들의 그루비 문법을 이용 버전을 자동으로 들어가게 해줌
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api" // 없이 사용 할 때 나오는 에러에 대응하기 위함
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api" // 없이 사용 할 때 나오는 에러에 대응하기 위함
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+
+/* Querydsl 설정부 qclass를 꺼내서 사용 하기 위함
+    IDE를 사용할 때 생길 수 있는 잠재적 문제를 해결하기 위함
+    기본적으로 gradle 폴더에 생성되기 때문에
+    gradle 빌드 영역과 intellij의 빌드 스캔 영역이 중복으로 스캔해서
+    충돌이 발생 하는 것을 방지 하기 위함
+
+    아래 부분이 ㅇ벗어도 실행은 되지만 충돌을 방지 하기 위해 사용
+*/
+def generated= 'src/main/generated'
+
+// querydsl QClass 파일 생성 위치를 지정
+tasks.withType(JavaCompile) {
+    options.getGeneratedSourceOutputDirectory().set(file(generated))
+}
+
+// java source set에 querydsl Qclass 위치 추가
+sourceSets {
+    main.java.srcDirs += [ generated ]
+}
+
+// gradle clean 시에 QClass 디렉토리 삭제
+clean {
+    delete file(generated)
 }
