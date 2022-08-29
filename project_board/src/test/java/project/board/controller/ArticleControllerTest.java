@@ -21,7 +21,7 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
-    @Disabled("구현 중") // 단위 메소드들을 테스트에서 제외시킬 수 있다
+//    @Disabled("구현 중") // 단위 메소드들을 테스트에서 제외시킬 수 있다
     @DisplayName("[view] [GET] 게시글 리스트 {게시판} 페이지 - 정상 호출")
     @Test
     public  void givenNothing_whenRequestingArticlesView_thenReturnArticlesView() throws Exception {
@@ -30,7 +30,8 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(MockMvcRequestBuilders.get("/articles"))
                 .andExpect(status().isOk()) // 요청응답이 ok 인가?
-                .andExpect(content().contentType(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
+                // CompatibleWith : 호환되는 타입 까지 맞다고 인정 해줌
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
                 .andExpect(view().name("articles/index")) // 여기에 뷰가 있어야 한다
                 .andExpect(model().attributeExists("articles")); // 이 뷰는 데이터가 있을 것이다 왜냐하면 이번페이지 게시글 목록이 보여야 하기 때문에 모델에트리뷰트로 밀어 넣어준다
     }
@@ -44,7 +45,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(MockMvcRequestBuilders.get("/articles/1"))
                 .andExpect(status().isOk()) // 요청응답이 ok 인가?
-                .andExpect(content().contentType(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
                 .andExpect(view().name("articles/detail"))
                 .andExpect(model().attributeExists("article")) // 이 뷰는 데이터가 있을 것이다 왜냐하면 이번페이지 게시글 목록이 보여야 하기 때문에 모델에트리뷰트로 밀어 넣어준다
                 .andExpect(model().attributeExists("articleComments"));
@@ -59,7 +60,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(MockMvcRequestBuilders.get("/articles/search"))
                 .andExpect(status().isOk()) // 요청응답이 ok 인가?
-                .andExpect(content().contentType(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
                 .andExpect(model().attributeExists("articles/search"));
     }
 
@@ -72,7 +73,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(MockMvcRequestBuilders.get("/articles/search-hashtag"))
                 .andExpect(status().isOk()) // 요청응답이 ok 인가?
-                .andExpect(content().contentType(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 컨텐트 내용에 타입이 무엇인가?, view 라서 TEXT_HTML
                 .andExpect(model().attributeExists("articles/search-hashtag"));
     }
 
