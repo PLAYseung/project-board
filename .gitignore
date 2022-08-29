@@ -193,6 +193,6 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-project_board/src/main/generated/project/board/domain/*
+/src/main/generated
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,intellij,gradle,java
