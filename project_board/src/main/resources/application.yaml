@@ -43,6 +43,9 @@ spring:
     rest:
       base-path: /api
       detection-strategy: annotated
+  thymeleaf3:
+    decoupled-logic: true
+
 
 ---
 # 내가 지정한 옵션으로 하겠다

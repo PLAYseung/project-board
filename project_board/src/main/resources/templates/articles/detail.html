@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 페이지</title>
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+
+    <main>
+
+        <header>
+            <h1>첫번째 글</h1>
+        </header>
+
+        <aside> <!--부가 정보를 보여줄수 있는 태그-->
+            <p>Yu</p>
+            <p><a href="mailto:yuga9812@gmail.com">yuga9812@gmail.com</a></p>
+            <p><time datetime="2022-01-01T00:00:00">2022-01-01</time></p>       <!--시간 시멘틱 태그-->
+            <p>#java</p>
+        </aside>
+
+        <section>
+            <p>본문<br><br></p>
+
+            <div>
+                <form>
+                    <label for="articleComment" hidden>댓글</label>
+                    <textarea id="articleComment" placeholder="댓글 쓰기.." rows="3"></textarea>
+                    <button type="submit">쓰기</button>
+                </form>
+
+                <ul>    <!--리스트 형태로 구성-->
+                    <li>
+                        <div>
+                            <time><small>2022-01-01</small></time>
+                            <strong>Yu</strong>
+                            <p>
+                                블라블라 궁시렁 궁시렁 블라블라 궁시렁 궁시렁
+                                블라블라 궁시렁 궁시렁
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <time><small>2022-01-01</small></time>
+                            <strong>Yu</strong>
+                            <p>
+                                블라블라 궁시렁 궁시렁 블라블라 궁시렁 궁시렁
+                                블라블라 궁시렁 궁시렁
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <nav>
+                <a href="#">이전글</a>
+                <a href="#">다음글</a>
+            </nav>
+        </section>
+
+    </main>
+
+
+    <footer id="footer"></footer>
+
+</body>
+</html>
