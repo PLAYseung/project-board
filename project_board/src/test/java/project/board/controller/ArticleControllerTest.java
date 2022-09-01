@@ -5,13 +5,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import project.board.config.SecurityConfig;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View 컨트롤러 - 게시글")
+@Import(SecurityConfig.class)
 @WebMvcTest(ArticleController.class) // 테스트 대상이 되는 컨트롤러만 불러온다
 class ArticleControllerTest {
 
@@ -20,6 +23,7 @@ class ArticleControllerTest {
     public ArticleControllerTest(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
+
 
 //    @Disabled("구현 중") // 단위 메소드들을 테스트에서 제외시킬 수 있다
     @DisplayName("[view] [GET] 게시글 리스트 {게시판} 페이지 - 정상 호출")
@@ -36,7 +40,6 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles")); // 이 뷰는 데이터가 있을 것이다 왜냐하면 이번페이지 게시글 목록이 보여야 하기 때문에 모델에트리뷰트로 밀어 넣어준다
     }
 
-    @Disabled("구현 중")
     @DisplayName("[view] [GET] 게시글 상세 페이지 - 정상 호출")
     @Test
     public  void givenNothing_whenRequestingArticleView_thenReturnArticleView() throws Exception {
